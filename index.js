@@ -137,5 +137,6 @@ function execCommand(command)
 
 function initializeTerminal()
 {
+    
     putInput()
 }
