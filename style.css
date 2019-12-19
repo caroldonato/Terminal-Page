@@ -1,0 +1,63 @@
+:root {
+    --primary: #ddd;
+    --dark: #333;
+    --light: #fff;
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+    --terminalfont: 'Quantico', sans-serif;
+}
+
+body {
+    background: #000000;
+}
+
+#terminal-window {
+    width: 40rem;
+    height: 22rem;
+    margin: auto;
+    margin-top: 5%;
+    padding: 0.01rem 1rem;
+    overflow: auto;
+
+    background: #303d30;
+    color: white;
+
+    text-align: left;
+}
+
+.intro {
+    font-family: var(--terminalfont);
+    font-size: 0.6em;
+    color: #9dc995;
+}
+
+.command-label {
+    font-family: var(--terminalfont);
+    font-size: 0.7em;
+    color: #6ded55;
+}
+
+input {
+    border: none;
+    outline: none;
+    background: transparent;
+
+    font-family: var(--terminalfont);
+    font-size: 0.7em;
+    color: #6ded55;
+}
+
+@media(max-width: 700px)
+{
+    #terminal-window {
+        width: 30rem;
+        height: 20rem;
+    }
+}
+
+@media(max-width: 500px)
+{
+    #terminal-window {
+        width: 18rem;
+        height: 25rem;
+    }
+}
