@@ -25,7 +25,7 @@ function putInput()
     const input = document.createElement('input')
 
     // Setting new element properties
-    input_label.innerHTML = '[<b>user</b> <i>Desktop</i>]# '
+    input_label.innerHTML = 'C:\\TERMINAL>'
     input_label.className = 'command-label'
     input.setAttribute('type', 'text')
     input.className = 'command'
@@ -65,10 +65,35 @@ function putAbout()
     const about = document.createElement('p')
     about.className = 'intro'
     about.innerHTML = `
-                    <b>Name: </b> Caroline Donato <br>
-                    <b>Status: </b> Looking for internship <br>
-                    <b>Education: </b> 4th year undergrad in CompSci <br>
-                    <b>Affiliation: </b> UEL - Londrina State University (Londrina, PR - Brazil) <br>
+    <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;border:none;}
+    .tg td{font-family:Arial, sans-serif;font-size:1.2em;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+    .tg th{font-family:Arial, sans-serif;font-size:1.2em;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;}
+    .tg .tg-0y7w{font-weight:bold;font-family:"Courier New", Courier, monospace !important;;border-color:inherit;text-align:center;vertical-align:top}
+    .tg .tg-9gth{font-family:"Courier New", Courier, monospace !important;;border-color:inherit;text-align:left;vertical-align:top}
+    </style>
+    <table class="tg" style="undefined;table-layout: fixed;">
+    <colgroup>
+    <col style="width: 200px">
+    <col style="width: 300px">
+    </colgroup>
+    <tr>
+        <th class="tg-0y7w">NAME:</th>
+        <th class="tg-9gth">Caroline Donato</th>
+    </tr>
+    <tr>
+        <td class="tg-0y7w">STATUS:</td>
+        <td class="tg-9gth"><span style="font-weight:normal">Looking for internship</span></td>
+    </tr>
+    <tr>
+        <td class="tg-0y7w">EDUCATION:</td>
+        <td class="tg-9gth"><span style="font-weight:normal">4th year undergrad in CompSci</span></td>
+    </tr>
+    <tr>
+        <td class="tg-0y7w">AFFILIATION:</td>
+        <td class="tg-9gth"><span style="font-weight:normal">UEL - Londrina State University (Londrina, PR - Brazil)</span></td>
+    </tr>
+    </table>
     `
     
     closeInput()
@@ -98,7 +123,14 @@ function putContact()
 
 function putInvalid()
 {
+    const terminal = document.querySelector('#terminal-window')
+    const invalid = document.createElement('p')
+    invalid.className = 'intro'
+    invalid.innerHTML = 'Invalid command. Type \'man\' for command list.'
 
+    closeInput()
+    terminal.appendChild(invalid)
+    putInput()
 }
 
 function execCommand(command)
@@ -114,29 +146,29 @@ function execCommand(command)
             putAbout()
             break
         case 'skills':
-            console.log("Printing skills page");
+            console.log("Printing skills page")
             putSkills()
             break
         case 'tools':
-            console.log("Printing tools page");
+            console.log("Printing tools page")
             putTools()
             break
         case 'study':
-            console.log("Printing study page");
+            console.log("Printing study page")
             putStudy()
             break
         case 'contact':
-            console.log("Printing contact page");
+            console.log("Printing contact page")
             putContact()
             break
         default: 
-            console.log("Invalid command");
+            console.log("Invalid command")
+            putInvalid()
             break
     }
 }
 
 function initializeTerminal()
 {
-    
     putInput()
 }

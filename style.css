@@ -3,11 +3,12 @@
     --dark: #333;
     --light: #fff;
     --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
-    --terminalfont: 'Quantico', sans-serif;
+    --windowbase: #C0C0C0;
+    --terminalfont: 'Source Code Pro', monospace;
 }
 
 body {
-    background: #000000;
+    background: #077D81;
 }
 
 #terminal-window {
@@ -15,35 +16,90 @@ body {
     height: 22rem;
     margin: auto;
     margin-top: 5%;
-    padding: 0.01rem 1rem;
+    padding: 0.06rem 1rem;
     overflow: auto;
 
-    background: #303d30;
+    background: #000000;
     color: white;
 
     text-align: left;
 }
 
+#menu {
+    background: var(--windowbase);
+    width: 100vw;
+    height: 4vh;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    border-top: 0.2rem ridge #fff;
+    display: inline-block;
+}
+
+#start-menu-button {
+    width: 6vw;
+    height: 2.8vh;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+    border: 0.2rem ridge #d2d2d2;
+    float: left;
+}
+
+.sep {
+    width: 1px;
+    height: 3.4vh;
+    margin-top: 0.2vh;
+    margin-right: 0.2vw;
+    background: #808080;
+    border-right: 1px solid #ffffff; 
+    float: left;
+}
+
+.movable-sep {
+    width: 2px;
+    height: 2.8vh;
+    margin-top: 0.3vh;
+    margin-right: 0.3em;
+    background: #C0C0C0;
+    border-top: 1px solid #ffffff;
+    border-right: 1px solid #808080; 
+    border-left: 1px solid #ffffff;
+    border-bottom: 1px solid #808080; 
+    float: left;
+}
+
+.icon {
+    width: 2.8vh;
+    height: 2.8vh;
+    margin-top: 0.3vh;
+    margin-right: 0.2em;
+    border: 0.1rem ridge #323232;
+    float: left;
+}
+
 .intro {
     font-family: var(--terminalfont);
     font-size: 0.6em;
-    color: #9dc995;
+    color: var(--primary);
 }
 
 .command-label {
+    padding: 0;
     font-family: var(--terminalfont);
     font-size: 0.7em;
-    color: #6ded55;
+    color: var(--primary);
 }
 
 input {
     border: none;
     outline: none;
     background: transparent;
+    padding: 0;
 
     font-family: var(--terminalfont);
     font-size: 0.7em;
-    color: #6ded55;
+    color: var(--primary);
 }
 
 @media(max-width: 700px)
