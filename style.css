@@ -10,6 +10,8 @@ body {
 
 #desktop {
     float: left;
+    margin-top: 0.5vh;
+    margin-left: 1vw;
 }
 
 #icon-grid {
@@ -216,7 +218,8 @@ body {
 .desktop-icon {
     width: 7vh;
     height: 7vh;
-    background: #ffffff;
+    margin: 0 auto;
+    background: transparent;
 }
 
 .desktop-icon:hover {
@@ -225,6 +228,7 @@ body {
 
 .desktop-name {
     margin: 0 auto;
+    font-family: 'Roboto Mono', monospace;
     font-size: 0.4em;
     text-align: center;
     color: #ffffff;
@@ -265,6 +269,7 @@ input {
 }
 
 img {
+    margin: 0 auto;
     max-width: 100%;
     max-height: 100%;
 }

@@ -170,5 +170,13 @@ function execCommand(command)
 
 function initializeTerminal()
 {
+    const terminal = document.querySelector('#terminal-window')
+
+    terminal.addEventListener('click', function (e) {
+        const input = document.querySelector('input')
+        input.focus()
+        input.select()
+    })
+
     putInput()
 }
