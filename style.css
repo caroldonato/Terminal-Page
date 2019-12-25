@@ -169,6 +169,24 @@ body:hover {
     text-align: left;
 }
 
+.content-table {
+    margin: 0 auto;
+    padding: 1em;
+    border: 1px solid #ffffff;
+}
+
+.content-header {
+    border-bottom: 1px solid #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.content-title{
+    text-align: left;
+    padding-right: 1em;
+}
+
+
 #menu {
     background: var(--windowbase);
     width: 100vw;
@@ -268,6 +286,7 @@ body:hover {
 
 .intro {
     padding-left: 3px;
+    padding-right: 3px;
     font-family: var(--terminalfont);
     font-size: 0.6em;
     color: var(--primary);
