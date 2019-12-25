@@ -2,10 +2,15 @@
     --primary: #ddd;
     --windowbase: #C0C0C0;
     --terminalfont: 'Source Code Pro', monospace;
+    --systemfont: 'Roboto Mono', monospace;
 }
 
 body {
     background: #077D81;
+}
+
+body:hover {
+    cursor: default;
 }
 
 #desktop {
@@ -36,7 +41,6 @@ body {
 #border-pattern {
     width: 99.9%;
     height: 3vh;
-    margin: auto;
     display: inline-block;
     background-image: linear-gradient(to right, #000080, #1084D0);
 }
@@ -155,7 +159,7 @@ body {
 #terminal-window {
     width: 99%;
     height: 92%;
-    margin: auto;
+
     overflow: auto;
 
     background: #000000;
@@ -215,6 +219,25 @@ body {
     float: left;
 }
 
+#start-menu-tasks {
+    margin-top: 0.3vh;
+    margin-right: 0.3em;
+    background: #C0C0C0;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #ffffff; 
+    border-bottom: 1px solid #ffffff; 
+    float: right;
+    display: block;
+}
+
+#clock {
+    font-size: 0.8em;
+    font-family: var(--systemfont);
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
 .desktop-icon {
     width: 7vh;
     height: 7vh;
@@ -228,7 +251,7 @@ body {
 
 .desktop-name {
     margin: 0 auto;
-    font-family: 'Roboto Mono', monospace;
+    font-family: var(--systemfont);
     font-size: 0.4em;
     text-align: center;
     color: #ffffff;
@@ -288,7 +311,7 @@ img {
 
     #terminal-window {
         width: 99%;
-        height: 92%;
+        height: 93%;
         overflow: auto;
     }
 
@@ -305,7 +328,7 @@ img {
     .desktop-icon {
         width: 7vh;
         height: 7vh;
-        background: #ffffff;
+        background: transparent;
     }
 }
 
@@ -341,7 +364,7 @@ img {
     .desktop-icon {
         width: 6vh;
         height: 6vh;
-        background: #ffffff;
+        background: transparent;
     }
 }
 
@@ -377,7 +400,7 @@ img {
     .desktop-icon {
         width: 6vh;
         height: 6vh;
-        background: #ffffff;
+        background: transparent;
     }
 }
 
@@ -413,7 +436,7 @@ img {
     .desktop-icon {
         width: 5vh;
         height: 5vh;
-        background: #ffffff;
+        background: transparent;
     }
 }
 
@@ -441,6 +464,6 @@ img {
     .desktop-icon {
         width: 5vh;
         height: 5vh;
-        background: #ffffff;
+        background: transparent;
     }
 }

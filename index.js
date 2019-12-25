@@ -168,6 +168,35 @@ function execCommand(command)
     }
 }
 
+const sleep = (seconds) => {
+    return new Promise(resolve =>setTimeout(resolve, 1000*seconds))
+}
+
+function initializeClock()
+{
+    const clock_worker = new Worker('clock.js')
+    const clock = document.querySelector('#clock')
+
+    clock_worker.addEventListener('message', function(e) {
+        clock.textContent = e.data
+        sleep(60).then(() => {
+            clock_worker.postMessage('wk')
+        })
+    }, false)
+
+    // Initial clock update
+    clock_worker.postMessage('wk')
+
+    // Second update making up for initial seconds offset
+    const start = new Date()
+    const diff = 60 - start.getSeconds()
+
+    sleep(diff).then(() => {
+        clock_worker.postMessage('wk')
+    })
+    
+}
+
 function initializeTerminal()
 {
     const terminal = document.querySelector('#terminal-window')
@@ -178,5 +207,6 @@ function initializeTerminal()
         input.select()
     })
 
+    initializeClock()
     putInput()
 }
