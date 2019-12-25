@@ -5,41 +5,139 @@
     <meta name="description" content="Terminal-style personal page for Carol Donato">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://kit.fontawesome.com/1e685f2f50.js" crossorigin="anonymous"></script>
     <link href="style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Quantico&display=swap" rel="stylesheet">
-    <noscript>
-            <style>
-                /**
-                  * Reinstate scrolling for non-JS clients
-                **/
-              [data-simplebar] {
-                overflow: auto;
-              }
-            </style>
-    </noscript>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet"> 
     
     <title>caroldonato's terminal</title>
 </head>
 <body onload="initializeTerminal()">
+
+    <!-- DESKTOP ICONS -->
+    <section id="desktop">
+
+        <div id="icon-grid">
+            <div class="desktop-icon">
+                <img src="img/vscode.svg">
+                <p class="desktop-name">Visual Studio Code</p>
+            </div>
+            <div class="desktop-icon">
+                <img src="img/idea.svg">
+                <p class="desktop-name">IntelliJ IDEA</p>
+            </div>
+            <div class="desktop-icon">
+                <img src="img/qt.svg">
+                <p class="desktop-name">QtCreator</p>
+            </div>
+            <div class="desktop-icon">
+                <img src="img/mysql.svg">
+                <p class="desktop-name">MySQL Workbench</p>
+            </div>
+            <div class="desktop-icon">
+                <img src="img/git.svg">
+                <p class="desktop-name">Git</p>
+            </div>
+            <div class="desktop-icon">
+                <img src="img/gmail.svg">
+                <p class="desktop-name">Gmail</p>
+            </div>
+            <div class="desktop-icon">
+                <img src="img/steam.svg">
+                <p class="desktop-name">Steam</p>
+            </div>
+            <div class="desktop-icon">
+                <a href="file/CarolineDonato-CV.pdf" download>
+                    <img src="img/pdf.svg">
+                </a>
+                
+                <p class="desktop-name">Curriculum Vitae</p>
+            </div>
+            <div class="desktop-icon">
+                <img src="img/trello.svg">
+                <p class="desktop-name">Trello</p>
+            </div>
+            <div class="desktop-icon">
+                <img style="border-radius: 5px" src="img/devto.png">
+                <p class="desktop-name">dev.to</p>
+            </div>
+            <div class="desktop-icon">
+                <img style="border-radius: 5px" src="img/lingodeer.jpg">
+                <p class="desktop-name">LingoDeer</p>
+            </div>
+            <div class="desktop-icon">
+                <img src="img/spotify.svg">
+                <p class="desktop-name">Spotify</p>
+            </div>
+        </div>
+
+    </section>
     
     <!-- TERMINAL -->
     <section id="terminal">
 
-        <div id="terminal-window">
+        <div id="terminal-border">
 
-            <p class="intro">
+            <div id="border-pattern">
 
-            0.0.1 TERMINAL PAGE 2019 <br>
-            13:00:00, 1 user, load average: 0,75 0,96 0,85 <br>
-            type man for command list
-            
-            </p>
+                <div id="terminal-icon">
+                    <img src="img/msdos.png">
+                </div>
+
+                <div id="window-title"> terminal @ caroldonato </div>
+                
+                <div id="close-btn">
+                    <div id="close-img">
+                        <img src="img/close.png">
+                    </div>
+                </div>
+
+                <div id="maximize-btn">
+                    <div id="maximize-img">
+                        <img src="img/maximize.png">
+                    </div>
+                </div>
+
+                <div id="minimize-btn">
+                    <div id="minimize-img">
+                        <b>_</b>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="terminal-window">
+
+                <p class="intro">
+    
+                0.0.1 TERMINAL PAGE 2019 <br>
+                13:00:00, 1 user, load average: 0,75 0,96 0,85 <br>
+                type man for command list
+                
+                </p>
+        
+            </div>
 
         </div>
 
     </section>
 
+    <!-- BOTTOM MENU -->
+    <section id="menu-section">
+
+        <div id="menu">
+            <div id="start-menu-button"></div>
+            <div class="sep"></div>
+            <div class="movable-sep"></div>
+            <div class="menu-icon" id="1"></div>
+            <div class="sep"></div>
+            <div class="movable-sep"></div>
+            <div id="start-menu-tasks">
+                <div id="clock"></div>
+            </div>
+        </div>
+
+    </section>
+    
     <script src="index.js"></script>
 
 </body>
