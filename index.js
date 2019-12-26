@@ -311,8 +311,8 @@ function putTools()
 function putStudy()
 {
     const contents = {
-        research : ['Model-Based Testing', 'Data Science', 'Artificial Intelligence'],
-        develop : ['Kotlin', 'SpringDB', 'JavaScript frameworks'],
+        research : ['Software Testing', 'Data Science', 'Artificial Intelligence'],
+        develop : ['Kotlin', 'Spring Boot', 'JavaScript frameworks'],
         current : ['JavaScript', 'Model-Based Testing']
     }
 
