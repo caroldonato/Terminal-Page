@@ -38,8 +38,8 @@ body:hover {
     border: 0.15rem ridge #DFDFDF;
 }
 
-#border-pattern {
-    width: 99.9%;
+.border-pattern {
+    width: 100%;
     height: 3vh;
     display: inline-block;
     background-image: linear-gradient(to right, #000080, #1084D0);
@@ -159,7 +159,7 @@ body:hover {
 #terminal-window {
     width: 99%;
     height: 92%;
-
+    margin: auto;
     overflow: auto;
 
     background: #000000;
@@ -186,6 +186,85 @@ body:hover {
     padding-right: 1em;
 }
 
+.dialog-border {
+    position: absolute;
+    top: 25vh;
+    left: 35vw;
+    width: 25vw;
+    height: 22vh;
+
+    background: #C0C0C0;
+    border-left: 0.1rem solid #FFFFFF;
+    border-top: 0.1rem solid #FFFFFF;
+    border-right: 0.1rem solid #808080;
+    border-bottom: 0.1rem solid #808080;
+}
+
+.dialog-title {
+    float: left;
+    position: relative;
+    font-size: 0.6em;
+    font-weight: bolder;
+    font-family: var(--terminalfont);
+    top: 3px;
+    left: 3px;
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+.dialog-close-btn {
+    position: relative;
+    float: right;
+    top: 1px;
+    margin-right: 3px;
+
+    width: 0.9em;
+    height: 0.8em;
+
+    background: #C0C0C0;
+    border-top: 0.15rem solid #ffffff;
+    border-left: 0.15rem solid #D1D1D1;
+    border-right: 0.15rem solid #404040;
+    border-bottom: 0.15rem solid #808080;
+    color: black;
+}
+
+.dialog-close-btn:hover {
+    cursor: pointer;
+}
+
+.dialog-close-img {
+    position: relative;
+    top: -2px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.dialog-contents {
+    padding: 1em;
+    text-align: center;
+    font-family: var(--systemfont);
+    font-size: 0.65em;
+}
+
+.dialog-ok-btn {
+    position: absolute;
+    top: 6.5em;
+    left: 8em;
+    width: 4.5em;
+
+    background: #C0C0C0;
+    border-left: 0.1rem solid #FFFFFF;
+    border-top: 0.1rem solid #FFFFFF;
+    border-right: 0.1rem solid #808080;
+    border-bottom: 0.1rem solid #808080;
+
+    text-align: center;
+    font-family: var(--terminalfont);
+    cursor: pointer;
+}
+
 
 #menu {
     background: var(--windowbase);
@@ -200,7 +279,6 @@ body:hover {
 }
 
 #start-menu-button {
-    width: 6vw;
     height: 2.8vh;
     margin-left: 0.2em;
     margin-right: 0.2em;
@@ -212,6 +290,21 @@ body:hover {
     background: #9c9c9c;
     border: 0.2rem ridge #d2d2d2;
     cursor: pointer;
+}
+
+#start-menu-img {
+    float: left;
+    margin-left: 0.2em;
+}
+
+#start-menu-txt {
+    float: left;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+    font-size: 0.8em;
+    font-family: var(--systemfont);
+    font-weight: 600;
+    letter-spacing: -0.15em;
 }
 
 .sep {
