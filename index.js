@@ -1,4 +1,3 @@
-
 function closeInput()
 {
     // Querying for terminal-window element
@@ -311,8 +310,8 @@ function putTools()
 function putStudy()
 {
     const contents = {
-        research : ['Model-Based Testing', 'Data Science', 'Artificial Intelligence'],
-        develop : ['Kotlin', 'SpringDB', 'JavaScript frameworks'],
+        research : ['Software Testing', 'Data Science', 'Artificial Intelligence'],
+        develop : ['Kotlin', 'Spring Boot', 'JavaScript frameworks'],
         current : ['JavaScript', 'Model-Based Testing']
     }
 
@@ -410,6 +409,119 @@ function putInvalid()
     putInput()
 }
 
+function putApp(ID)
+{
+    const contents = document.querySelector('.dialog-contents')
+
+    switch(ID)
+    {
+        case 'icon1':
+            contents.innerHTML = `I use <b>VSCode</b> for programming mostly anything!
+                                  The visual extensions are great, and this page
+                                  would've taken a bit more without Live Server :)`
+            break
+        case 'icon2':
+            contents.innerHTML = `To keep my Java code well structured, there's no<br>
+                                  other IDE for me besides <b>IDEA</b>. I'm hopeful the
+                                  experience with Kotlin will be similar!`
+            break
+        case 'icon3':
+            contents.innerHTML = `My first GUI experience was with <b>QtCreator</b> using C++.
+                                  I love the ease of use, and the examples and documentation
+                                  are very detailed too.`
+            break
+        case 'icon4':
+            contents.innerHTML = `A whole year of Databases class and some side-project dabbling
+                                  have helped me have a pretty decent grasp of SQL. I've used both
+                                  <b>MySQL</b> and <b>PostgreSQL</b>, as well as <b>Hibernate</b> framework.`
+            break
+        case 'icon5':
+            contents.innerHTML = `So far I've used both <b>Git</b> with Github and <b>SVN</b> for version
+                                  control. <b>GitFlow</b> has really helped me organize my group
+                                  and solo projects better, and I use GitKraken for visual aid. `
+            break
+        case 'icon6':
+            contents.innerHTML = `I'm very up to date with my inbox! So feel free to drop a message at
+                                  cinque.santi@gmail.com. For other ways of contacting me, check the
+                                  contact command of the terminal :)`
+            break
+        case 'icon7':
+            contents.innerHTML = `This is the non-educational way I spend my free time. Of course,
+                                  game development is also a secondary interest.`
+            break
+        case 'icon8':
+            contents.innerHTML = `I'm currently looking for internship opportunities! Thank you for downloading my CV :)`
+            break
+        case 'icon9':
+            contents.innerHTML = `College was hard before <b>Trello</b>! I can be very forgetful, so I always make sure to use
+                                  all the tools available to keep me in check. I've also used it for <b>Scrum</b> management.`
+            break
+        case 'icon10':
+            contents.innerHTML = `This is my daily reading! A great source of diverse knowledge and discussions regardind coding.
+                                  I really suggest you visit it, if you haven't yet: <a href="https://dev.to" target="_blank">Click here!</a>`
+            break
+        case 'icon11':
+            contents.innerHTML = `Another one of my major interests is studying languages! I'm currently invested in learning Japanese.`
+            break
+        case 'icon12':
+            contents.innerHTML = `Programming while listening to anything is great. I pride myself in making weird playlists of 
+                                  unusual genre combinations. `
+            break
+    }
+}
+
+function putDialog(ID) {
+
+    const input = document.querySelector('input')
+    const screen = document.querySelector('body')
+    const icons = document.querySelectorAll('.desktop-icon')
+
+    // Creates dialog window elements
+    const border = document.createElement('div')
+    border.classList.add('dialog-border')
+    const pattern = document.createElement('div')
+    pattern.classList.add('border-pattern')
+    const title = document.createElement('div')
+    title.classList.add('dialog-title')
+    title.innerText = 'Desktop Explorer'
+    const closebtn = document.createElement('div')
+    closebtn.classList.add('dialog-close-btn')
+    const closeimg = document.createElement('img')
+    closeimg.classList.add('dialog-close-img')
+    closeimg.src = "img/close.png"
+    const contents = document.createElement('div')
+    contents.classList.add('dialog-contents')
+    const okbtn = document.createElement('div')
+    okbtn.classList.add('dialog-ok-btn')
+    okbtn.innerText = 'OK'
+
+    // Shows them on screen
+    border.appendChild(pattern)
+    border.appendChild(contents)
+    border.appendChild(okbtn)
+    pattern.appendChild(title)
+    pattern.appendChild(closebtn)
+    closebtn.appendChild(closeimg)
+    screen.appendChild(border)
+
+    // Set event listeners
+    okbtn.addEventListener('click', function(e){
+        screen.removeChild(border)
+        input.disabled = false
+    })
+    closebtn.addEventListener('click', function(e){
+        screen.removeChild(border)
+        input.disabled = false
+    })
+
+    // Removes terminal input listener
+    input.disabled = true
+
+    // Call app function
+    putApp(ID)
+    
+}
+
 function execCommand(command)
 {
     switch(command)
@@ -467,8 +579,14 @@ function initializeClock()
     
 }
 
-function initializeTerminal()
+function initializeDesktop()
 {
+    const desktopIcons = document.querySelectorAll('.desktop-icon')
+
+    desktopIcons.forEach(function(icon){
+        icon.addEventListener('click', function(e) { putDialog(icon.id) })
+    })
+
     const terminal = document.querySelector('#terminal-window')
 
     terminal.addEventListener('click', function (e) {
@@ -476,6 +594,7 @@ function initializeTerminal()
         input.focus()
         input.select()
     })
+
 
     initializeClock()
     putInput()
