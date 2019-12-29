@@ -1,3 +1,17 @@
+function startTerminal()
+{
+    const intro = document.createElement('p')
+    intro.classList.add('intro')
+    intro.innerText = `0.0.1 TERMINAL PAGE 2019
+    13:00:00, 1 user, load average: 0,75 0,96 0,85
+    type man for command list`
+
+    const terminal = document.querySelector('#terminal-window')
+    terminal.appendChild(intro)
+
+    putInput()
+}
+
 function closeInput()
 {
     // Querying for terminal-window element
@@ -54,7 +68,9 @@ function putMan()
         skills : 'Lists my relevant skills and level.',
         tools : 'Lists tool I use the most for coding and my affinity level.',
         study: 'Topics and themes I am currently studying or interested in.',
-        contact : 'How to contact me!'
+        contact : 'How to contact me!',
+        credits : 'Where I got some of the resources for this page.',
+        clear : 'Clean terminal screen.'
     }
 
     const terminal = document.querySelector('#terminal-window')
@@ -86,6 +102,14 @@ function putMan()
         <tr class="content-row">
             <td class="content-title"><b>contact</b></td>
             <td class="content-info">${contents.contact}</td>
+        </tr>
+        <tr class="content-row">
+            <td class="content-title"><b>credits</b></td>
+            <td class="content-info">${contents.credits}</td>
+        </tr>
+        <tr class="content-row">
+            <td class="content-title"><b>clear</b></td>
+            <td class="content-info">${contents.clear}</td>
         </tr>
     </table>
     `
@@ -367,7 +391,7 @@ function putContact()
     const contents = {
         email : 'cinque.santi@gmail.com',
         github : 'github.com/caroldonato',
-        linkedin : 'www.linkedin.com/in/caroline-donato'
+        linkedin : 'linkedin.com/in/caroline-donato'
     }
 
     const terminal = document.querySelector('#terminal-window')
@@ -383,11 +407,36 @@ function putContact()
         </tr>
         <tr class="content-row">
             <td class="content-title"><b>GITHUB:</b></td>
-            <td class="content-info">${contents.github}</td>
+            <td class="content-info"><a href="https://github.com/caroldonato" target="_blank">${contents.github}</a></td>
         </tr>
         <tr class="content-row">
             <td class="content-title"><b>LINKEDIN:</b></td>
-            <td class="content-info">${contents.linkedin}</td>
+            <td class="content-info"><a href="https://www.linkedin.com/in/caroline-donato" target="_blank">${contents.linkedin}</a></td>
+        </tr>
+    </table>
+    `
+
+    closeInput()
+    terminal.appendChild(contact)
+    putInput()
+}
+
+function putCredits()
+{
+    const contents = {
+        Windows98Icons : ['Windows 98 Icons', `Alex Meub @ <a href="https://win98icons.alexmeub.com/" target="_blank">win98icons.alexmeub.com</a>`]
+    }
+
+    const terminal = document.querySelector('#terminal-window')
+    const contact = document.createElement('p')
+    contact.className = 'intro'
+
+    contact.innerHTML = `
+    <p style="text-align:center">These are the sources to some of the icons I've used: </p>
+    <table class="content-table" id="about">
+        <tr class="content-row">
+            <td class="content-title"><b>${contents.Windows98Icons[0]}</b></td>
+            <td class="content-info">${contents.Windows98Icons[1]}</td>
         </tr>
     </table>
     `
@@ -407,6 +456,25 @@ function putInvalid()
     closeInput()
     terminal.appendChild(invalid)
     putInput()
+}
+
+function putClear()
+{
+    const prints = document.querySelectorAll('.intro')
+    const commands = document.querySelectorAll('.command-label')
+    const input = document.querySelector('input')
+
+    prints.forEach(function(print){
+        print.parentNode.removeChild(print)
+    })
+
+    commands.forEach(function(command){
+        command.parentNode.removeChild(command)
+    })
+
+    input.parentNode.removeChild(input)
+
+    startTerminal()
 }
 
 function putApp(ID)
@@ -470,7 +538,7 @@ function putApp(ID)
     }
 }
 
-function putDialog(ID) {
+function putDialog(e) {
 
     const input = document.querySelector('input')
     const screen = document.querySelector('body')
@@ -508,17 +576,28 @@ function putDialog(ID) {
     okbtn.addEventListener('click', function(e){
         screen.removeChild(border)
         input.disabled = false
+        icons.forEach(function(icon){
+            icon.addEventListener('click', putDialog)
+        })
     })
+
     closebtn.addEventListener('click', function(e){
         screen.removeChild(border)
         input.disabled = false
+        icons.forEach(function(icon){
+            icon.addEventListener('click', putDialog)
+        })
     })
 
     // Removes terminal input listener
     input.disabled = true
 
+    icons.forEach(function(icon){
+        icon.removeEventListener('click', putDialog)
+    })
+
     // Call app function
-    putApp(ID)
+    putApp(e.currentTarget.id)
     
 }
 
@@ -543,6 +622,12 @@ function execCommand(command)
             break
         case 'contact':
             putContact()
+            break
+        case 'credits':
+            putCredits()
+            break
+        case 'clear':
+            putClear()
             break
         default: 
             putInvalid()
@@ -584,7 +669,7 @@ function initializeDesktop()
     const desktopIcons = document.querySelectorAll('.desktop-icon')
 
     desktopIcons.forEach(function(icon){
-        icon.addEventListener('click', function(e) { putDialog(icon.id) })
+        icon.addEventListener('click', putDialog)
     })
 
     const terminal = document.querySelector('#terminal-window')
@@ -597,5 +682,5 @@ function initializeDesktop()
 
 
     initializeClock()
-    putInput()
+    startTerminal()
 }
